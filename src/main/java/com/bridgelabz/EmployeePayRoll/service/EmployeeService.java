@@ -14,11 +14,16 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    public List<Employee> employees() {
+        return employeeRepository.findAll();
+    }
+
     public Employee addEmployee(EmployeeDto employeeDto) {
         Employee employee = new Employee();
         employee.setName(employeeDto.getName());
         employee.setSalary(employeeDto.getSalary());
         return employeeRepository.save(employee);
     }
+
 
 }

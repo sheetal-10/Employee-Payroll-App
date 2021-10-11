@@ -17,6 +17,11 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
+    @GetMapping(value = "/employees")
+    public List<Employee> employees() {
+        return employeeService.employees();
+    }
+
     @PostMapping(value = "/addEmployee")
     public Employee addEmployee(@RequestBody EmployeeDto employeeDto) {
         return employeeService.addEmployee(employeeDto);
