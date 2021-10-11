@@ -25,8 +25,13 @@ public class EmployeeController {
     }
 
     @PutMapping(value = "/updateEmployee/{id}")
-    public Employee updateEmployee(@PathVariable int id, @RequestBody EmployeeDto employeeDto){
+    public Employee updateEmployee(@PathVariable int id, @RequestBody EmployeeDto employeeDto) {
         return employeeService.updateEmployee(id, employeeDto);
+    }
+
+    @DeleteMapping(value = "/deleteEmployee")
+    public String deleteEmployee(@RequestParam int id) {
+        return employeeService.deleteEmployee(id);
     }
 
 }

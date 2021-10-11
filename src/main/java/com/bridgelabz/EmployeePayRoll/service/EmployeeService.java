@@ -37,4 +37,13 @@ public class EmployeeService {
         }
         return null;
     }
+
+    public String deleteEmployee(int id) {
+        Optional<Employee> optionalEmployee = employeeRepository.findById(id);
+        if (optionalEmployee.isPresent()) {
+            employeeRepository.delete(optionalEmployee.get());
+            return "Record deleted successfully";
+        }
+        return "Record does not exists with this id : " + id;
+    }
 }
