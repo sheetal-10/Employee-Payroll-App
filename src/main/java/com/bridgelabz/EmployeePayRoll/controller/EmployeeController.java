@@ -3,6 +3,7 @@ package com.bridgelabz.EmployeePayRoll.controller;
 import com.bridgelabz.EmployeePayRoll.dto.EmployeeDto;
 import com.bridgelabz.EmployeePayRoll.entity.Employee;
 import com.bridgelabz.EmployeePayRoll.service.EmployeeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
  * @version - 0.0.1
  * @since - 11/10/2021
  */
+@Slf4j
 @RestController
 public class EmployeeController {
 
@@ -45,6 +47,7 @@ public class EmployeeController {
      */
     @PutMapping(value = "/updateEmployee/{id}")
     public Employee updateEmployee(@PathVariable int id, @RequestBody EmployeeDto employeeDto) {
+        log.info(employeeDto.toString());
         return employeeService.updateEmployee(id, employeeDto);
     }
 

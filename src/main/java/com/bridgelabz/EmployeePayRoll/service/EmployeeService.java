@@ -53,7 +53,7 @@ public class EmployeeService {
             Employee employee = optionalEmployee.get();
             employee.setName(employeeDto.getName());
             employee.setSalary(employeeDto.getSalary());
-            return employee;
+            return employeeRepository.save(employee);
         }
         return null;
     }
